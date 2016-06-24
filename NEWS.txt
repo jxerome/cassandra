@@ -55,6 +55,9 @@ Upgrading
       is harmless and due to the 3.8 nodes having cdc added to their schema tables while
       the <3.8 nodes do not. This message should cease once all nodes are upgraded to 3.8.
       As always, refrain from schema changes during cluster upgrades.
+    - Logs written to stdout are now consistent with logs written to files.
+      Time is now local (it was UTC on the console and local in files). Date, thread, file
+      and line info where added to stdout. (see CASSANDRA-12004)
 
 Deprecation
 -----------
@@ -2145,4 +2148,3 @@ key in a given ColumnFamily) is limited by available memory, because
 compaction deserializes each row before merging.
 
 See https://issues.apache.org/jira/browse/CASSANDRA-16
-
